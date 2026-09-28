@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "./styles/atlas.css";
+
+/* Tokens da Atlas também como utilitários do Tailwind (bg-pedra, text-tinta, font-serif...) */
+@theme {
+  --color-pedra: #e1e0dc;
+  --color-pedra-clara: #ecebe7;
+  --color-pedra-escura: #b7b6b2;
+  --color-foto: #dfdeda;
+  --color-noite: #0d0d0d;
+  --color-tinta: #0d0d0d;
+  --color-tinta-suave: #42413d;
+  --color-estampa: #f2ece2;
+  --color-divisoria: #c9c8c3;
+  /* a transição usa bg-neutral-900: alinhado ao preto da marca */
+  --color-neutral-900: #0d0d0d;
+  --color-neutral-800: #1d1d1c;
+  --font-serif: "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
+  --font-larga: Michroma, "Eurostile Extended", "Microgramma", "Arial Black", sans-serif;
+}
