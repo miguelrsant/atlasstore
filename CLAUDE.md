@@ -59,3 +59,8 @@ Sempre que a tarefa envolver vídeo, motion, animação renderizada em vídeo, c
 - `remotion-docs` — consultar a documentação atual do Remotion
 
 Não edite os arquivos dentro de `.claude/skills/remotion-*` (são sobrescritos ao atualizar as skills).
+
+### Export
+
+- O vídeo final vai para `docs/videos/`, com a data de criação e um título no nome: `AAAA-MM-DD_titulo-em-kebab-case.mp4` (ex.: `2026-09-28_atlas-vista-o-seu-caminho_instagram-30s.mp4`). Grave também o título (`title`) e a data (`creation_time`) nos metadados do mp4.
+- Depois de exportar e conferir o vídeo, apague a pasta de trabalho do Remotion (`video/`).
