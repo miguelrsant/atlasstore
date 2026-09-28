@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 // Entrada da home: uma capa preta com ATLAS, dividida em retângulos que viram
 // um a um e revelam a hero por baixo. Roda uma vez, quando o site abre na home.
 const FIM_MS = 1500
+const TECLAS_ROLAGEM = new Set([' ', 'ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End'])
 
 function grade() {
   const w = window.innerWidth
@@ -19,12 +20,19 @@ export function EntradaHome() {
   useEffect(() => {
     if (!ativa) return
     const html = document.documentElement
-    html.style.overflow = 'hidden'
+    // trava a rolagem sem esconder a barra, para a página não mudar de largura
+    const trava = (e: Event) => e.preventDefault()
+    const teclas = (e: KeyboardEvent) => { if (TECLAS_ROLAGEM.has(e.key)) e.preventDefault() }
+    window.addEventListener('wheel', trava, { passive: false })
+    window.addEventListener('touchmove', trava, { passive: false })
+    window.addEventListener('keydown', teclas)
     html.classList.add('com-entrada')
     const t = window.setTimeout(() => setAtiva(false), FIM_MS)
     return () => {
       window.clearTimeout(t)
-      html.style.overflow = ''
+      window.removeEventListener('wheel', trava)
+      window.removeEventListener('touchmove', trava)
+      window.removeEventListener('keydown', teclas)
       // deixa o modelo terminar de subir antes de tirar a classe
       window.setTimeout(() => html.classList.remove('com-entrada'), 600)
     }

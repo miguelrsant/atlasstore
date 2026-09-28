@@ -12,27 +12,47 @@ export interface Rota {
 
 const filtros: Filtro[] = ['todos', 'camisetas', 'calcas', 'bones']
 
-// Só âncoras simples (#sobre, #produto-mapas) funcionam em qualquer hospedagem,
-// então a rota inteira cabe num token do hash.
-export function lerRota(hash: string): Rota {
-  const h = hash.replace(/^#/, '')
-  const base: Rota = { pagina: 'inicio', filtro: 'todos', produto: 'mapas' }
-  if (!h || h === 'inicio') return base
-  if (h === 'sobre') return { ...base, pagina: 'sobre' }
-  if (h === 'colecao' || h.startsWith('colecao-')) {
-    const f = h.slice(8) as Filtro
+// URLs limpas: /sobre, /colecao/camisetas, /produto/mapas. O hash fica só para
+// âncoras dentro da página (/#lista).
+export function lerRota(caminho: string, hash = ''): Rota {
+  const [pagina, extra] = caminho.replace(/^\/+|\/+$/g, '').split('/')
+  const ancora = hash.replace(/^#/, '') || undefined
+  const base: Rota = { pagina: 'inicio', filtro: 'todos', produto: 'mapas', ancora }
+  if (pagina === 'sobre') return { ...base, pagina: 'sobre' }
+  if (pagina === 'colecao') {
+    const f = extra as Filtro
     return { ...base, pagina: 'colecao', filtro: filtros.includes(f) ? f : 'todos' }
   }
-  if (h.startsWith('produto')) {
-    const id = h.slice(8) as ProdutoId
+  if (pagina === 'produto') {
+    const id = extra as ProdutoId
     return { ...base, pagina: 'produto', produto: id in produtos ? id : 'mapas' }
   }
-  return { ...base, ancora: h }
+  return base
+}
+
+// Links antigos (#sobre, #colecao-bones, #produto-mapas) viram o caminho novo.
+export function caminhoAntigo(hash: string): string | null {
+  const h = hash.replace(/^#/, '')
+  if (h === 'inicio') return '/'
+  if (h === 'sobre') return '/sobre'
+  if (h === 'colecao') return '/colecao'
+  if (h.startsWith('colecao-')) return `/colecao/${h.slice(8)}`
+  if (h.startsWith('produto-')) return `/produto/${h.slice(8)}`
+  return null
 }
 
 export const link = {
-  inicio: '#inicio',
-  sobre: '#sobre',
-  colecao: (f: Filtro = 'todos') => (f === 'todos' ? '#colecao' : `#colecao-${f}`),
-  produto: (id: ProdutoId) => `#produto-${id}`,
+  inicio: '/',
+  sobre: '/sobre',
+  lista: '/#lista',
+  colecao: (f: Filtro = 'todos') => (f === 'todos' ? '/colecao' : `/colecao/${f}`),
+  produto: (id: ProdutoId) => `/produto/${id}`,
+}
+
+export const instagram = 'https://www.instagram.com/atlas_rv/'
+
+// Navega sem recarregar e avisa quem escuta 'popstate' (App, Cabeçalho).
+export function navegar(url: string) {
+  history.pushState(null, '', url)
+  window.dispatchEvent(new PopStateEvent('popstate'))
 }

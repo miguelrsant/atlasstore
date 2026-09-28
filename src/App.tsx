@@ -4,7 +4,7 @@ import { Cabecalho } from '@/components/layout/Cabecalho'
 import { Rodape } from '@/components/layout/Rodape'
 import { Sacola } from '@/components/layout/Sacola'
 import { useSacola } from '@/context/sacola'
-import { lerRota, type Rota } from '@/hooks/rota'
+import { caminhoAntigo, lerRota, navegar, type Rota } from '@/hooks/rota'
 import { Colecao } from '@/pages/Colecao'
 import { Inicio } from '@/pages/Inicio'
 import { Produto } from '@/pages/Produto'
@@ -21,11 +21,28 @@ function rolar(rota: Rota) {
   else window.scrollTo(0, 0)
 }
 
+function rotaAtual() {
+  const antigo = caminhoAntigo(window.location.hash)
+  if (antigo) history.replaceState(null, '', antigo)
+  return lerRota(window.location.pathname, window.location.hash)
+}
+
+// Links internos (<a href="/sobre">) navegam sem recarregar a página
+function aoClicar(e: MouseEvent) {
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+  const a = (e.target as Element).closest?.('a')
+  if (!a || a.target || a.hasAttribute('download')) return
+  const url = new URL(a.href, window.location.href)
+  if (url.origin !== window.location.origin) return
+  e.preventDefault()
+  navegar(url.pathname + url.search + url.hash)
+}
+
 const mesmaTela = (a: Rota, b: Rota) =>
   a.pagina === b.pagina && (a.pagina !== 'produto' || a.produto === b.produto)
 
 export default function App() {
-  const [rota, setRota] = useState<Rota>(() => lerRota(window.location.hash))
+  const [rota, setRota] = useState<Rota>(rotaAtual)
   const [cobrindo, setCobrindo] = useState(false)
   const rotaRef = useRef(rota)
   const pendente = useRef<Rota | null>(null)
@@ -51,7 +68,7 @@ export default function App() {
 
   useEffect(() => {
     const aoMudar = () => {
-      const nova = lerRota(window.location.hash)
+      const nova = lerRota(window.location.pathname, window.location.hash)
       fechar()
       if (mesmaTela(nova, rotaRef.current) || semAnimacao()) { trocar(nova); return }
       pendente.current = nova
@@ -60,8 +77,12 @@ export default function App() {
       window.clearTimeout(timer.current)
       timer.current = window.setTimeout(cobriu, COBRIR_MS + 150)
     }
-    window.addEventListener('hashchange', aoMudar)
-    return () => window.removeEventListener('hashchange', aoMudar)
+    window.addEventListener('popstate', aoMudar)
+    document.addEventListener('click', aoClicar)
+    return () => {
+      window.removeEventListener('popstate', aoMudar)
+      document.removeEventListener('click', aoClicar)
+    }
   }, [cobriu, fechar, trocar])
 
   useEffect(() => { rolar(rotaRef.current) }, [])

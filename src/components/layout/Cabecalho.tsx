@@ -16,21 +16,17 @@ export function Cabecalho({ pagina }: { pagina: Pagina }) {
     const esc = (e: KeyboardEvent) => e.key === 'Escape' && setMenu(false)
     const fechar = () => setMenu(false)
     document.addEventListener('keydown', esc)
-    window.addEventListener('hashchange', fechar)
+    window.addEventListener('popstate', fechar)
     document.body.style.overflow = 'hidden'
     return () => {
       document.removeEventListener('keydown', esc)
-      window.removeEventListener('hashchange', fechar)
+      window.removeEventListener('popstate', fechar)
       document.body.style.overflow = ''
     }
   }, [menu])
 
   return (
     <>
-      <div className="anuncio wrap legenda">
-        <span>Frete grátis acima de R$ 399</span>
-        <div><a href="#lista">Lista Atlas</a><a href={link.produto('mapas')}>Trocas</a><a href={link.sobre}>Sobre</a></div>
-      </div>
       <header className="topo wrap legenda">
         <button className="linkbtn hamburguer" type="button" aria-label="Abrir menu" aria-expanded={menu}
           aria-controls="menu-celular" onClick={() => setMenu(true)}>
@@ -43,7 +39,7 @@ export function Cabecalho({ pagina }: { pagina: Pagina }) {
         <a className="logo" href={link.inicio} aria-label="Atlas, início">ATLAS</a>
         <nav aria-label="Conta">
           <a href={link.colecao()}>Buscar</a>
-          <a href="#lista">Entrar</a>
+          <a href={link.lista}>Entrar</a>
           <button className="linkbtn" type="button" onClick={abrir}>
             Sacola{quantidade > 0 && <span className="cont">{quantidade}</span>}
           </button>
@@ -76,9 +72,9 @@ export function Cabecalho({ pagina }: { pagina: Pagina }) {
               ))}
             </nav>
             <div className="menu-celular-pe legenda">
-              <a href="#lista">Lista Atlas</a>
+              <a href={link.lista}>Lista Atlas</a>
               <a href={link.produto('mapas')}>Trocas</a>
-              <a href="#lista">Entrar</a>
+              <a href={link.lista}>Entrar</a>
             </div>
           </motion.div>
         )}

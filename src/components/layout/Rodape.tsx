@@ -1,5 +1,5 @@
 import { Chamada } from '@/components/Chamada'
-import { link } from '@/hooks/rota'
+import { instagram, link } from '@/hooks/rota'
 
 export function Rodape() {
   return (
@@ -18,11 +18,11 @@ export function Rodape() {
           <li><a href={link.produto('mapas')}>Trocas e devoluções</a></li>
           <li><a href={link.produto('mapas')}>Prazos de entrega</a></li>
           <li><a href={link.produto('mapas')}>Guia de tamanhos</a></li>
-          <li><a href="#lista">Fale conosco</a></li>
+          <li><a href={link.lista}>Fale conosco</a></li>
         </ul></div>
         <div><h3 className="legenda">Atlas</h3><ul>
           <li><a href={link.sobre}>Sobre</a></li>
-          <li><a href={link.inicio}>Instagram</a></li>
+          <li><a href={instagram} target="_blank" rel="noopener noreferrer">Instagram</a></li>
           <li><a href={link.inicio}>TikTok</a></li>
         </ul></div>
       </div>
