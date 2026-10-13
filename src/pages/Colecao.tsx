@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { DynamicFrameLayout, type Frame } from '@/components/ui/dynamic-frame-layout'
 import { galeria, img, produtos, type Filtro } from '@/data/loja'
 import { link } from '@/hooks/rota'
+import { Logo } from '@/components/Logo'
 
 const opcoes: [Filtro, string][] = [['todos', 'Todos'], ['camisetas', 'Camisetas'], ['calcas', 'Calças'], ['bones', 'Bonés']]
 const dois = (n: number) => String(n).padStart(2, '0')
@@ -26,7 +27,7 @@ export function Colecao({ filtro }: { filtro: Filtro }) {
       id: 99, mediaSize: 1, isHovered: false,
       content: (
         <div className="frame-centro">
-          <span className="logo">ATLAS</span>
+          <Logo className="logo" />
           <span className="legenda">Coleção 2026 · Franca, SP</span>
         </div>
       ),

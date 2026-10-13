@@ -14,7 +14,7 @@ Como o design system aparece no código do site atual (projeto `atlas-react`). S
 | Design system | Site |
 |---|---|
 | `.at-root`, `.at-caps` | `body`, `.caps` |
-| `.at-wordmark--topo` / `--hero` | `.logo` / `.hero-logo` |
+| `.at-wordmark--topo` / `--hero` | `.logo` (agora com o SVG `<Logo variante="simbolo" />`) / `.hero-logo` |
 | `.at-btn--primario` / `--claro` | `.btn.btn-p` / `.btn.btn-c` |
 | `.at-btn--contorno` | sem equivalente (o `.filtro` é parecido) |
 | `.at-link` | `.link` |

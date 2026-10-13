@@ -1,5 +1,6 @@
 import { Chamada } from '@/components/Chamada'
 import { instagram, link } from '@/hooks/rota'
+import { Logo } from '@/components/Logo'
 
 export function Rodape() {
   return (
@@ -26,7 +27,7 @@ export function Rodape() {
           <li><a href={link.inicio}>TikTok</a></li>
         </ul></div>
       </div>
-      <p className="rodape-logo" aria-hidden="true">ATLAS</p>
+      <Logo className="rodape-logo" />
       <div className="rodape-base legenda">
         <span>© 2026 Atlas · Franca, SP</span>
         <div><span>Pix</span><span>Cartão em até 6x</span><span>Boleto</span></div>

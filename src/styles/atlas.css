@@ -51,6 +51,7 @@ h1,h2,h3,p{margin:0;font-weight:400}
 .topo nav:last-child{justify-content:flex-end}
 .topo nav a:hover{text-decoration:underline;text-underline-offset:4px}
 .logo{font-family:var(--font-serif);font-size:26px;line-height:1;letter-spacing:.02em;color:var(--marca)}
+.logo svg{display:block;height:40px;width:auto}
 .cont{display:inline-grid;place-items:center;min-width:16px;height:16px;padding:0 4px;margin-left:4px;border-radius:999px;background:var(--acao);color:var(--sobre-acao);font-size:9px;letter-spacing:0}
 
 /* hero */
@@ -136,7 +137,7 @@ a:hover .foto img{transform:scale(1.03)}
 .rodape-cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--e2)}
 .rodape-cols h3{color:var(--sobre-noite-suave);margin-bottom:var(--e3)}
 .rodape-cols a:hover{text-decoration:underline;text-underline-offset:4px}
-.rodape-logo{font-family:var(--font-serif);font-size:clamp(88px,23vw,330px);line-height:.72;letter-spacing:-.01em;text-align:center;color:var(--sobre-noite);margin-block:var(--e4) 0;pointer-events:none;user-select:none}
+.rodape-logo{display:block;height:clamp(150px,20vw,300px);width:auto;margin:var(--e5) auto 0;color:var(--sobre-noite);pointer-events:none;user-select:none}
 .rodape-base{display:flex;justify-content:space-between;gap:var(--e3);flex-wrap:wrap;color:var(--sobre-noite-suave);border-top:var(--linha) solid #333331;padding-top:var(--e3)}
 .rodape-base div{display:flex;gap:var(--e4);flex-wrap:wrap}
 
@@ -329,7 +330,7 @@ button.linkbtn{background:none;border:0;padding:0;font:inherit;letter-spacing:in
 .galeria-frames button:hover .frame-legenda,.galeria-frames button:focus-visible .frame-legenda{opacity:1;transform:none}
 .galeria-frames button:focus-visible{outline:2px solid var(--tinta);outline-offset:2px}
 .frame-centro{width:100%;height:100%;background:var(--noite);color:var(--sobre-noite);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--e2);text-align:center;padding:var(--e2)}
-.frame-centro .logo{color:var(--sobre-noite);font-size:clamp(28px,4vw,64px)}
+.frame-centro .logo{color:var(--sobre-noite);height:clamp(56px,7vw,120px);width:auto}
 .frame-centro .legenda{font-size:9px}
 @media (max-width:720px){
   .galeria-frames{height:130vw;min-height:0;width:100%}

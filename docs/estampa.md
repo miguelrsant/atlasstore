@@ -22,11 +22,15 @@ A ordem conta a história: país, estado, cidade e o rumo. Mantenha a ordem e as
 - Uma cor só: `estampa` (`#f2ece2`, igual nos dois temas), off-white sobre a malha preta. O valor é **estimado** das fotos da camiseta (o flash deixa mais claro).
 - Para desenhar o motivo no site, use `estampa` sobre `noite`.
 
-## O ATLAS no peito
+## A logo no peito
 
-Na frente da camiseta, a palavra ATLAS vai pequena, na altura do peito, numa serifa de máquina de escrever, na mesma tinta `estampa`.
+**Decisão do Miguel (2026-10-13)**: o símbolo bordado no peito (arco com ramo, ponto, "A" serifado e ATLAS embaixo) é a logo da marca. Ver a seção **Logo oficial** em `.docs/componentes-base.md`.
 
-**Decisão do Miguel**: essa serifa de máquina de escrever é a assinatura das peças, não o logotipo. O logotipo continua sendo a Cormorant Garamond Regular. Não use a letra de máquina de escrever como logo no site, e não recrie o ATLAS do peito com a Cormorant.
+## O ATLAS em máquina de escrever
+
+Em algumas fotos, na frente da camiseta, a palavra ATLAS vai pequena, na altura do peito, numa serifa de máquina de escrever, na mesma tinta `estampa`.
+
+**Decisão do Miguel**: essa serifa de máquina de escrever é a assinatura das peças, não a logo. Não use a letra de máquina de escrever como logo no site, e não recrie o ATLAS do peito com a Cormorant.
 
 ## No site
 

@@ -6,11 +6,11 @@ Fonte: `atlas-tokens.json` → `type`, e `atlas-componentes.css`. A lista `type.
 
 | Família | Variável CSS | Pilha (exata) | Uso |
 |---|---|---|---|
-| `serif` | `--font-serif` | `"Cormorant Garamond", "Cormorant", Garamond, Georgia, serif` | Só o logotipo ATLAS |
+| `serif` | `--font-serif` | `"Cormorant Garamond", "Cormorant", Garamond, Georgia, serif` | A palavra ATLAS do hero e da entrada (a logo é um SVG, ver `.docs/componentes-base.md`) |
 | `larga` | `--font-larga` | `"Science Gothic", "Eurostile Extended", "Arial Black", sans-serif` | Todo o resto |
 
 **Decisão do Miguel**
-- Logotipo: Cormorant Garamond Regular (400). É o logotipo oficial ATLAS.
+- Logo: desde 2026-10-13 a logo oficial é o símbolo do peito da camiseta, em SVG (`src/components/Logo.tsx`). A Cormorant Garamond Regular (400) fica para a palavra ATLAS gigante do hero e da entrada da home.
 - Todo o resto: Science Gothic com `font-stretch: 150%` (largura **estimada** do layout dele). Títulos de seção em 700; todo o resto em 400.
 - A serifa de máquina de escrever do ATLAS no peito da camiseta é a assinatura das peças, não o logotipo. Não use essa letra como logo nem troque o logo por ela (ver `.docs/estampa.md`).
 
@@ -31,7 +31,7 @@ Grupo **Marca**, família `serif`:
 | Estilo | Tamanho | Linha | Peso | Espaço entre letras | Amostra | Uso (texto da fonte) |
 |---|---|---|---|---|---|---|
 | `logo-hero` | 280px | 0.8 | 400 | -0.01em | ATLAS | O ATLAS gigante do hero, com a modelo sobreposta. No site: `clamp(96px, 20.5vw, 280px)`. |
-| `logo-topo` | 26px | 1 | 400 | 0.02em | ATLAS | Logotipo no cabeçalho, centralizado. |
+| `logo-topo` | 26px | 1 | 400 | 0.02em | ATLAS | Antigo logotipo do cabeçalho. No site o cabeçalho agora mostra o símbolo SVG. |
 
 O “No site” da tabela é texto do design system: é o valor de `.at-wordmark--hero`. O site React atual usa outro (ver **No site**, abaixo).
 
@@ -62,4 +62,4 @@ Grupo **Larga**, família `larga`. Em todos: “Science Gothic com largura expan
 - `body` usa o estilo `texto` (13px, `letter-spacing: .02em`, `line-height: 1.6`) com `font-stretch: 150%`. `button, input, select, textarea` repetem o `font-stretch`, porque campos de formulário não herdam a fonte.
 - `.titulo` usa `clamp(22px, 2.3vw, 30px)`; `.hero-logo`, `clamp(110px, 20.5vw, 380px)`.
 - A descrição longa do produto usa 12px, `line-height: 1.6`, sem caixa alta, ainda na Science Gothic.
-- Onde a Cormorant aparece fora do logotipo (o ponto pendente): `.display` (títulos das páginas Sobre e Coleção), `.manifesto-frase`, `.citacao`, números do Sobre (`.numero b`, `.capitulo .num`) e links do menu do celular. O ATLAS gigante do rodapé (`.rodape-logo`), o da entrada da home e o do centro da galeria são o logotipo.
+- Onde a Cormorant aparece fora do logotipo (o ponto pendente): `.display` (títulos das páginas Sobre e Coleção), `.manifesto-frase`, `.citacao`, números do Sobre (`.numero b`, `.capitulo .num`) e links do menu do celular. O rodapé (`.rodape-logo`), o cabeçalho e o centro da galeria mostram a logo em SVG; o ATLAS do hero e o da entrada da home seguem em Cormorant.

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useSacola } from '@/context/sacola'
 import { link, type Pagina } from '@/hooks/rota'
+import { Logo } from '@/components/Logo'
 
 export function Cabecalho({ pagina }: { pagina: Pagina }) {
   const { quantidade, abrir } = useSacola()
@@ -36,7 +37,7 @@ export function Cabecalho({ pagina }: { pagina: Pagina }) {
           <a href={link.colecao()} aria-current={atual('colecao')}>Coleção</a>
           <a href={link.sobre} aria-current={atual('sobre')}>Sobre</a>
         </nav>
-        <a className="logo" href={link.inicio} aria-label="Atlas, início">ATLAS</a>
+        <a className="logo" href={link.inicio} aria-label="Atlas, início"><Logo variante="simbolo" titulo="" /></a>
         <nav aria-label="Conta">
           <a href={link.colecao()}>Buscar</a>
           <a href={link.lista}>Entrar</a>
@@ -55,7 +56,7 @@ export function Cabecalho({ pagina }: { pagina: Pagina }) {
               <button className="linkbtn" type="button" aria-label="Fechar menu" onClick={() => setMenu(false)}>
                 <X size={22} strokeWidth={1.5} aria-hidden />
               </button>
-              <a className="logo" href={link.inicio}>ATLAS</a>
+              <a className="logo" href={link.inicio} aria-label="Atlas, início"><Logo variante="simbolo" titulo="" /></a>
               <span aria-hidden />
             </div>
             <nav className="menu-celular-links">

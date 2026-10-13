@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 770" fill="none" stroke="currentColor" color="#e1e0dc">
+  <!-- arco que vira ramo -->
+  <path d="M220 440V187a177 177 0 0 1 354 0L530 400" stroke-width="11" stroke-linecap="round"/>
+  <g fill="currentColor" stroke="none">
+    <path id="f" d="M0 0C10-12 10-32 0-46C-10-32-10-12 0 0Z"/>
+    <use href="#f" transform="translate(566 236) rotate(-48)"/>
+    <use href="#f" transform="translate(563 250) rotate(42)"/>
+    <use href="#f" transform="translate(555 290) rotate(-48)"/>
+    <use href="#f" transform="translate(552 304) rotate(42)"/>
+    <use href="#f" transform="translate(544 344) rotate(-48)"/>
+    <use href="#f" transform="translate(541 358) rotate(42)"/>
+    <!-- ponto -->
+    <ellipse cx="290" cy="243" rx="14" ry="11"/>
+    <!-- A: haste grossa -->
+    <path d="M374 220H408L602 590H556Z"/>
+  </g>
+  <!-- A: haste fina, travessão e serifas -->
+  <path d="M384 226L242 590M289 470H498M200 590H284M532 590H628M356 221H392" stroke-width="11"/>
+  <!-- ATLAS -->
+  <path d="M10 752L55 652L100 752M29 712H81M190 656H285M237.5 656V752M397 652V745H460M555 752L607 652L659 752M574 712H640M824 666C810 648 768 648 766 674C764 702 830 700 830 728C830 758 774 760 760 738"
+        stroke-width="14" stroke-linejoin="miter"/>
+</svg>

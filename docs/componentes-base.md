@@ -7,7 +7,17 @@ Fonte: `atlas-componentes.css`. Prefixo `at-`, elementos com `__`, variantes com
 - `.at-root` e todos os filhos: `box-sizing: border-box`. A raiz usa `font-family: var(--font-larga)`, `font-stretch: 150%` e `color: var(--tinta)`.
 - `.at-caps`: `text-transform: uppercase` (“Tipografia larga: sempre caixa alta”).
 
-## Logotipo: `.at-wordmark`
+## Logo oficial: `<Logo />`
+
+**Decisão do Miguel (2026-10-13)**: a logo da Atlas é o símbolo bordado no peito da camiseta: um arco fino que termina num ramo com folhas, um ponto à esquerda, um "A" serifado com a haste direita grossa e a palavra ATLAS espaçada embaixo. Foi vetorizado de uma foto pequena e inclinada, então os traços são um redesenho fiel, não uma cópia do arquivo original. Se o Miguel mandar o arquivo da logo, ele substitui este desenho.
+
+- Componente: `src/components/Logo.tsx`. `variante="completa"` (símbolo + ATLAS, `viewBox 0 0 840 770`) ou `variante="simbolo"` (só o arco, o ponto, o ramo e o A, `viewBox 190 0 450 600`). Usa `currentColor`, então pega a cor do texto: `--marca` na pedra, `--sobre-noite` no preto. Com `titulo=""` fica decorativo, para quando o link em volta já tem `aria-label`.
+- Arquivos soltos: `public/marca/atlas-logo.svg` (preto), `atlas-logo-branco.svg` (pedra `#e1e0dc`) e `atlas-simbolo.svg`. Favicon: `public/favicon.svg`, símbolo pedra sobre quadrado `noite`.
+- Onde aparece no site: cabeçalho e menu do celular (símbolo, 40px de altura, `.logo svg`), rodapé (completa, `.rodape-logo`, `clamp(150px, 20vw, 300px)` de altura) e o quadro central da galeria da Coleção (completa, `.frame-centro .logo`).
+- Tamanho mínimo: símbolo com 24px de altura; abaixo disso as folhas somem.
+- O ATLAS gigante do hero e o da entrada da home continuam em Cormorant (`.at-wordmark`, abaixo): são a palavra editorial do layout do Miguel, não a logo.
+
+## Palavra ATLAS em Cormorant: `.at-wordmark`
 
 Base: `--font-serif`, cor `--marca`, peso 400, `margin: 0`, `line-height: 1`, `letter-spacing: .02em`. Sempre a palavra ATLAS, em Cormorant Garamond Regular.
 

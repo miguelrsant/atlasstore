@@ -28,8 +28,9 @@ Caminhos a partir da raiz do projeto:
 
 - Use os tokens do design system (variáveis CSS). Não invente cor, tamanho ou espaço; se faltar um valor, pergunte ao Miguel.
 - Visual editorial e mínimo: preto, branco e cinza quente. `alerta` só em erro, sempre com texto.
-- Logotipo ATLAS: Cormorant Garamond Regular, só no logotipo. Todo o resto: Science Gothic com `font-stretch: 150%` (estimado), títulos de seção em 700 e o resto em 400, textos secundários largos e em caixa alta.
-- A serifa de máquina de escrever do peito da camiseta é a assinatura das peças, não o logotipo.
+- Logo oficial (Miguel, 2026-10-13): o símbolo do peito da camiseta, com arco que vira ramo, ponto, "A" serifado e ATLAS espaçado embaixo. No site use sempre o componente `src/components/Logo.tsx` (`variante="completa"` ou `"simbolo"`); os SVGs soltos ficam em `public/marca/` e o favicon em `public/favicon.svg`. Não redesenhe a logo nem a troque por texto.
+- O ATLAS gigante do hero e o da entrada da home continuam em Cormorant Garamond Regular: são a palavra editorial do layout, não a logo. Todo o resto: Science Gothic com `font-stretch: 150%` (estimado), títulos de seção em 700 e o resto em 400, textos secundários largos e em caixa alta.
+- A serifa de máquina de escrever do ATLAS no peito de algumas fotos antigas é a assinatura das peças, não a logo.
 - Pendente: o site usa Cormorant em frases editoriais grandes (títulos de página, manifesto, citações). O Miguel ainda não decidiu; não amplie nem retire esse uso.
 - Hero: sempre no fundo de pedra clara (`fixo-pedra`, `#e1e0dc`), mesmo no tema escuro; recorte da modelo sem borda nem contorno; modelo e sombra centralizadas; em tela grande cresce só até cerca de 760px de altura a 1900px de largura.
 - Fotos nunca cortam a cabeça. Texto sobre imagem tem de ficar legível; use fundo sólido quando precisar.

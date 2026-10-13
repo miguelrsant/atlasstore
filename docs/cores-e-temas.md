@@ -17,7 +17,7 @@ Dois temas: `light` = **Pedra** (claro) e `dark` = **Noite** (escuro).
 | `noite` | `#0d0d0d` | `#050505` | Faixa escura de coleção e barra de anúncio. Texto: `sobre-noite` e `sobre-noite-suave`. |
 | `tinta` | `#0d0d0d` | `#e1e0dc` | Texto principal, sublinhados e anel de foco sobre `pedra`, `pedra-clara` e `pedra-escura` (14.7:1 e 9.6:1 no tema Pedra). |
 | `tinta-suave` | `#42413d` | `#9e9d98` | Texto secundário (descrições, preços riscados, metadados) sobre `pedra`, `pedra-clara` e `pedra-escura`. Nunca em título. |
-| `marca` | `#000000` | `#f2f1ed` | Só o logotipo ATLAS em Cormorant Garamond Regular. Preto puro, como no layout. |
+| `marca` | `#000000` | `#f2f1ed` | Só a logo e a palavra ATLAS do hero. Preto puro, como no layout. |
 | `acao` | `#0d0d0d` | `#e1e0dc` | Fundo do botão primário. Medido no botão COMPRE AGORA. |
 | `sobre-acao` | `#e1e0dc` | `#0d0d0d` | Texto do botão primário, sobre `acao`. |
 | `sobre-noite` | `#e1e0dc` | `#e1e0dc` | Texto, sublinhados e anel de foco sobre `noite`. |
